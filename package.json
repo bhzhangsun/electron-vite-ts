@@ -1,0 +1,80 @@
+{
+  "name": "bigbang",
+  "version": "0.0.1",
+  "description": "BigBang-营销裂变助手",
+  "author": "昆仑工作室",
+  "license": "MIT",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "dev:renderer": "vite",
+    "dev:main": "electron-forge start",
+    "build:renderer": "vue-tsc --noEmit && vite build",
+    "build:main": "gulp buildMain",
+    "serve": "vite preview",
+    "package": "electron-forge package",
+    "make": "gulp build && electron-forge make",
+    "build": "gulp build",
+    "dev": "gulp dev",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.{ts,js,vue}\" --fix"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-decoupled-document": "^29.0.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "vue": "^3.0.5",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.58",
+    "@electron-forge/maker-deb": "^6.0.0-beta.58",
+    "@electron-forge/maker-dmg": "^6.0.0-beta.58",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.58",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.58",
+    "@electron-forge/maker-zip": "^6.0.0-beta.58",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "@vitejs/plugin-vue": "^1.2.5",
+    "@vue/compiler-sfc": "^3.0.5",
+    "chokidar": "^3.5.2",
+    "del": "^6.0.0",
+    "electron": "^13.1.7",
+    "element-plus": "^1.0.2-beta.58",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.14.0",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "prettier": "^2.3.2",
+    "ts-node": "^10.1.0",
+    "tsc": "^2.0.3",
+    "typescript": "^4.3.2",
+    "vite": "^2.4.3",
+    "vite-plugin-style-import": "^1.0.1",
+    "vue-tsc": "^0.0.24"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "bigbang"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin",
+            "linux"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-dmg",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
